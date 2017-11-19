@@ -1,6 +1,6 @@
 # Stupid Simple React
 ### Stupid Simple React Boilerplate
-Just another React boilerplate with a few tools for other useful tools for common app interactions like,
+Another react boilerplate with simple tooling and bare-bones configuration geared toward small apps or prototyping with:
 * Axios
 * Classnames
 * Styled JSX
