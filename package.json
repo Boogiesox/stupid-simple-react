@@ -1,0 +1,43 @@
+{
+  "name": "stupid-simple-react",
+  "version": "0.0.1a",
+  "description": "",
+  "author": "Eric Gregoire",
+  "repository": "",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "watch": "webpack --progress --colors --watch",
+    "start": "webpack && webpack-dev-server --open"
+  },
+  "jest": {
+    "setupFiles": [
+      "<rootDir>/src/js/shim.js"
+    ]
+  },
+  "dependencies": {
+    "axios": "^0.17.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "classnames": "^2.2.5",
+    "enzyme": "^3.2.0",
+    "enzyme-adapter-react-16": "^1.1.0",
+    "jest": "^21.2.1",
+    "prop-types": "^15.6.0",
+    "react": "^16.1.1",
+    "react-dom": "^16.1.1",
+    "reactcss": "^1.2.3",
+    "styled-jsx": "^2.2.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-jest": "^21.2.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-react": "^6.24.1",
+    "copy-webpack-plugin": "^4.2.0",
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.3"
+  }
+}
