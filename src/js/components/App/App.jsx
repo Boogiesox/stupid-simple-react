@@ -5,27 +5,32 @@ import ExampleComponent from '../ExampleComponent';
 
 class App extends React.Component {
     constructor(props) {
+        // Accesses property of the parent class
+        // Not needed here, but necessary if you want access to props in constructor.
         super(props);
 
         this.state = {
             value: "",
         };
-
+        
+        // Binding in the constructor:
+        // https://medium.com/shoutem/react-to-bind-or-not-to-bind-7bf58327e22a
         this.handleValueSelectionChange = this.valueSelectionChange.bind(this);
     }
 
     valueSelectionChange(v) {
-        this.setState(() => ({
+        // Functional state updates
+        this.setState((previousState, props) => ({
             value: v,
         }));
     }
 
     render() {
-        const {
+        const { // Just some destructuring of state properties
             value
         } = this.state;
 
-        return (
+        return ( // The JSX 
             <div>
                 <ExampleComponent
                     value={this.state.value}
