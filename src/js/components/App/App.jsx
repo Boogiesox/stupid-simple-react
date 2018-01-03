@@ -7,6 +7,7 @@ class App extends React.Component {
     constructor(props) {
         // Accesses property of the parent class
         // Not needed here, but necessary if you want access to props in constructor.
+        // e.g. Assigning prop values to state is popular for initializing a component
         super(props);
 
         this.state = {
