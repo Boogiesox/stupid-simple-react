@@ -28,7 +28,9 @@
     "prop-types": "^15.6.0",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
+    "react-json-pretty": "^1.7.4",
     "reactcss": "^1.2.3",
+    "string-format": "^0.5.0",
     "styled-jsx": "^2.2.0"
   },
   "devDependencies": {
