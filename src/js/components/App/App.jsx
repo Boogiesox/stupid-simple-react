@@ -37,9 +37,9 @@ class App extends React.Component {
         this.handleGetError404 = this.getError404.bind(this);
     }
 
-    valueSelectionChange(v) {
+    valueSelectionChange(value) {
         return this.setState((previousState, props) => ({
-            value: v,
+            value,
         }));
     }
 
@@ -100,14 +100,14 @@ class App extends React.Component {
                     {this.state.value}
                 </h3>
 
-                <button onClick={this.handleGetAllPosts}>Get All Posts</button>
-                <button onClick={this.handleGetSinglePost}>Get Single Post</button>
-                <button onClick={this.handleGetSinglePostComments}>Get Post Comments</button>
-                <button onClick={this.handleGetError404}>Get 404 Error</button>
-
                 <fieldset>
+                    <button onClick={this.handleGetAllPosts}>Get All Posts</button>
+                    <button onClick={this.handleGetSinglePost}>Get Single Post</button>
+                    <button onClick={this.handleGetSinglePostComments}>Get Post Comments</button>
+                    <button onClick={this.handleGetError404}>Get 404 Error</button>
+
                     <legend>
-                        Get Posts
+                        Example API
                     </legend>
 
                     <JSONPretty json={data} />
