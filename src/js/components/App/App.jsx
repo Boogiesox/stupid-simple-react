@@ -34,6 +34,7 @@ class App extends React.Component {
         this.handleGetAllPosts = this.getAllPosts.bind(this);
         this.handleGetSinglePost = this.getSinglePost.bind(this);
         this.handleGetSinglePostComments = this.getSinglePostComments.bind(this);
+        this.handleGetError404 = this.getError404.bind(this);
     }
 
     valueSelectionChange(v) {
@@ -50,21 +51,36 @@ class App extends React.Component {
     }
 
     getAllPosts() {
-        return this.props.onGetAllPosts().then(data => {
-            this.exampleDataChanged(data);
-        });
+        return this.props.onGetAllPosts()
+            .then(data => { this.exampleDataChanged(data);},
+            e => { alert('There was a 500-level error'); });
     }
 
     getSinglePost() {
-        return this.props.onGetSinglePost().then(data => {
-            this.exampleDataChanged(data);
-        });
+        return this.props.onGetSinglePost()
+            .then(data => { this.exampleDataChanged(data);},
+            e => { alert('There was a 500-level error'); });
     }
 
     getSinglePostComments() {
-        return this.props.onGetSinglePostComments().then(data => {
-            this.exampleDataChanged(data);
-        });
+        return this.props.onGetSinglePostComments()
+            .then(data => { this.exampleDataChanged(data); },
+            e => { alert('There was an 500-level error'); });
+    }
+
+    getError404() { // 400-level are valid responses. Catch handles 500-level responses
+        return this.props.onGetError404()
+            .then(data => {
+                this.exampleDataChanged(data);
+                switch (data.response.status) { // Handlers for 400-level responses
+                    case 404:
+                        alert(`The resource at ${data.config.url} could not be found`);
+                        break;
+                
+                    default:
+                        break;
+                }
+            });
     }
 
     render() {
@@ -87,6 +103,7 @@ class App extends React.Component {
                 <button onClick={this.handleGetAllPosts}>Get All Posts</button>
                 <button onClick={this.handleGetSinglePost}>Get Single Post</button>
                 <button onClick={this.handleGetSinglePostComments}>Get Post Comments</button>
+                <button onClick={this.handleGetError404}>Get 404 Error</button>
 
                 <fieldset>
                     <legend>

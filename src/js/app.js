@@ -9,23 +9,17 @@ const exampleApi = new ExampleApi;
 const props = {
   onGetAllPosts: () => {
     // Error passed along from interceptor so front end has a chance to handle error too.
-    return exampleApi.getPosts().catch(e => {
-      alert('There was an error');
-      return e;
-    });
+    return exampleApi.getPosts();
   },
   onGetSinglePost: () => {
-    return exampleApi.getPost(3).catch(e => {
-      alert('There was an error');
-      return e;
-    });
+    return exampleApi.getPost(3);
   },
   onGetSinglePostComments: () => {
-    return exampleApi.getPostComments(3).catch(e => {
-      alert('There was an error');
-      return e;
-    });
+    return exampleApi.getPostComments(3);
   },
+  onGetError404: () => {
+    return exampleApi.getError404();
+  }
 }
 
 // Using ReactDOM that we imported which has a method to render a
