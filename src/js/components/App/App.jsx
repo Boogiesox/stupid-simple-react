@@ -9,12 +9,14 @@ class App extends React.Component {
         onGetAllPosts: PropTypes.func,
         onGetSinglePost: PropTypes.func,
         onGetSinglePostComments: PropTypes.func,
+        onGetError404: PropTypes.func,
     }
 
     static defaultProps = {
         onGetAllPosts: () => {},
         onGetSinglePost: () => {},
         onGetSinglePostComments: () => {},
+        onGetError404: () => {},
     }
 
     constructor(props) {
