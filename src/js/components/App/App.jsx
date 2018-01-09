@@ -95,7 +95,7 @@ class App extends React.Component {
             <div>
                 <ExampleComponent
                     value={this.state.value}
-                    onChange={this.handleValueSelectionChange}
+                    onChange={this.valueSelectionChange}
                 />
 
                 <h3>
