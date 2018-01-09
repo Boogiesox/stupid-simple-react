@@ -10,13 +10,13 @@ const paths = {
     get post()     { return `${this.posts}/{}`; },
     get comments() { return `${this.posts}/{}/comments`; },
     get error404() { return `${this.posts}/doesnotexist`; }
-}
+};
 
 // Some error strings
 const errors = {
     request: 'There was a problem with your request:',
     postId: 'A valid post ID was not supplied',
-}
+};
 
 const handleError = (errString = '', e = '') => {
     return console.error(`${errString} ${e}`);
