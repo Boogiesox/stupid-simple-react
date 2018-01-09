@@ -4,22 +4,13 @@ import stringFormat from 'string-format';
 // Constructs the api strings with a main config using JS getters
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get
 const paths = {
-    root: 'https://jsonplaceholder.typicode.com',
-    // Using getters so we can progressively construct paths by referencing properties within this literal
-    get posts() {
-        return `${this.root}/posts`;
-    },
-    get post() {
-        // Uses a string-format, a Python-esque string method for interpolating rest params
-        // This is so we can still use getters which support object literal self-references
-        return `${this.posts}/{}`;
-    },
-    get comments() {
-        return `${this.posts}/{}/comments`;
-    },
-    get error404() {
-        return `${this.posts}/doesnotexist`
-    }
+    // Progressively constructs api paths using getters for literal self-reference
+    // support 
+    root:          'https://jsonplaceholder.typicode.com',
+    get posts()    { return `${this.root}/posts`; },
+    get post()     { return `${this.posts}/{}`; },
+    get comments() { return `${this.posts}/{}/comments`; },
+    get error404() { return `${this.posts}/doesnotexist`; }
 }
 
 // Some error strings

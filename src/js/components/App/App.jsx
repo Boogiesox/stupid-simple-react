@@ -30,16 +30,16 @@ class App extends React.Component {
 
         // Binding in the constructor:
         // https://medium.com/shoutem/react-to-bind-or-not-to-bind-7bf58327e22a
-        this.handleValueSelectionChange = this.valueSelectionChange.bind(this);
-        this.handleGetAllPosts = this.getAllPosts.bind(this);
-        this.handleGetSinglePost = this.getSinglePost.bind(this);
-        this.handleGetSinglePostComments = this.getSinglePostComments.bind(this);
-        this.handleGetError404 = this.getError404.bind(this);
+        this.valueSelectionChange = this.valueSelectionChange.bind(this);
+        this.getAllPosts = this.getAllPosts.bind(this);
+        this.getSinglePost = this.getSinglePost.bind(this);
+        this.getSinglePostComments = this.getSinglePostComments.bind(this);
+        this.getError404 = this.getError404.bind(this);
     }
 
     valueSelectionChange(value) {
         return this.setState((previousState, props) => ({
-            value,
+            value, // Shorthand for { value: value }
         }));
     }
 
@@ -101,10 +101,10 @@ class App extends React.Component {
                 </h3>
 
                 <fieldset>
-                    <button onClick={this.handleGetAllPosts}>Get All Posts</button>
-                    <button onClick={this.handleGetSinglePost}>Get Single Post</button>
-                    <button onClick={this.handleGetSinglePostComments}>Get Post Comments</button>
-                    <button onClick={this.handleGetError404}>Get 404 Error</button>
+                    <button onClick={this.getAllPosts}>Get All Posts</button>
+                    <button onClick={this.getSinglePost}>Get Single Post</button>
+                    <button onClick={this.getSinglePostComments}>Get Post Comments</button>
+                    <button onClick={this.getError404}>Get 404 Error</button>
 
                     <legend>
                         Example API
