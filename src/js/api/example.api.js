@@ -4,8 +4,7 @@ import stringFormat from 'string-format';
 // Constructs the api strings with a main config using JS getters
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get
 const paths = {
-    // Progressively constructs api paths using getters for literal self-reference
-    // support 
+    // string-format used to interpolate api params into {} occurrences
     root:          'https://jsonplaceholder.typicode.com',
     get posts()    { return `${this.root}/posts`; },
     get post()     { return `${this.posts}/{}`; },
@@ -30,13 +29,13 @@ export default class ExampleApi {
 
     getPost(postId = null) {
         return postId
-            ? get(stringFormat(paths.post, postId))
+            ? get(stringFormat(paths.post, postId)) // string-format to add postId
             : handleError(errors.postId)
     }
 
     getPostComments(postId = null) {
         return postId
-            ? get(stringFormat(paths.comments, postId))
+            ? get(stringFormat(paths.comments, postId)) // string-format to add postId
             : handleError(errors.postId)
     }
 
