@@ -1,4 +1,4 @@
-import { get, interceptors } from 'axios';
+import axios from 'axios';
 import stringFormat from 'string-format'; 
 
 // Constructs the api strings with a main config using JS getters
@@ -24,27 +24,27 @@ const handleError = (errString = '', e = '') => {
 
 export default class ExampleApi {
     getPosts() {
-        return get(paths.posts) // axios.get
+        return axios.get(paths.posts); // axios.get
     }
 
     getPost(postId = null) {
         return postId
-            ? get(stringFormat(paths.post, postId)) // string-format to add postId
-            : handleError(errors.postId)
+            ? axios.get(stringFormat(paths.post, postId)) // string-format to add postId
+            : handleError(errors.postId);
     }
 
     getPostComments(postId = null) {
         return postId
-            ? get(stringFormat(paths.comments, postId)) // string-format to add postId
-            : handleError(errors.postId)
+            ? axios.get(stringFormat(paths.comments, postId)) // string-format to add postId
+            : handleError(errors.postId);
     }
 
     getError404() {
-        return get(paths.error404)
+        return axios.get(paths.error404);
     }
 };
 
-interceptors.response.use(response => {
+axios.interceptors.response.use(response => {
     return response;
 }, e => {
     handleError(errors.request, e); // Global request error handler
