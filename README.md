@@ -1,6 +1,6 @@
 # Stupid Simple React Seed
 ### Another Simple React Seed
-Another react boilerplate with simple tooling and bare-bones configuration geared toward small apps or prototyping with:
+Another react project seed with simple tooling and bare-bones configuration annotated heavily for learning React and useful for prototyping spikes or very small, focused apps. Includes:
 * Axios
 * Classnames
 * Styled JSX
