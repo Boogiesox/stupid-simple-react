@@ -1,5 +1,5 @@
-# Stupid Simple React
-### Stupid Simple React Boilerplate
+# Stupid Simple React Seed
+### Another Simple React Seed
 Another react boilerplate with simple tooling and bare-bones configuration geared toward small apps or prototyping with:
 * Axios
 * Classnames
